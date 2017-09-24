@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, ModalController, NavController} from 'ionic-angular';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+import {Item} from '../../models/item';
+import {Items} from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -13,7 +13,17 @@ export class ListMasterPage {
   currentItems: Item[];
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+
+
+    this.items.query().then(
+      items => {
+        console.log("items");
+        this.currentItems = items
+      }
+    );
+
+
+    // this.currentItems = [];
   }
 
   /**
@@ -31,6 +41,7 @@ export class ListMasterPage {
     addModal.onDidDismiss(item => {
       if (item) {
         this.items.add(item);
+        this.items.save();
       }
     })
     addModal.present();

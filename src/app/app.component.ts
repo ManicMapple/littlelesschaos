@@ -4,7 +4,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {TranslateService} from '@ngx-translate/core';
 import {Config, Nav, Platform} from 'ionic-angular';
 
-import {FirstRunPage} from '../pages/pages';
+import {FirstRunPage, MainPage} from '../pages/pages';
 import {Settings} from '../providers/providers';
 
 @Component({
@@ -84,13 +84,18 @@ export class MyApp {
   }
 
   checkRootPage() {
-    // Check if we should show the tutorial or skip it
-    this.settings.getValue("show_tutorial_on_startup").then(val => {
-      if(val == true) {
-        this.rootPage = "TutorialPage";
-      }else{
-        this.rootPage = "TabsPage";
-      }
+
+    this.settings.load().then(() => {
+      // Check if we should show the tutorial or skip it
+      this.settings.getValue("show_tutorial_on_startup").then(val => {
+        if (val == true) {
+          this.rootPage = FirstRunPage;
+        } else {
+          this.rootPage = MainPage;
+        }
+      });
     });
+
+
   }
 }
