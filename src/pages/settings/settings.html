@@ -11,8 +11,8 @@
   <form [formGroup]="form" *ngIf="settingsReady">
     <ion-list *ngIf="page == 'main'">
       <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION1' | translate }}</ion-label>
-        <ion-toggle formControlName="option1"></ion-toggle>
+        <ion-label>{{ 'SETTINGS_OPTION_SHOW_TUTORIAL_ON_STARTUP' | translate }}</ion-label>
+        <ion-toggle formControlName="show_tutorial_on_startup"></ion-toggle>
       </ion-item>
 
       <ion-item>

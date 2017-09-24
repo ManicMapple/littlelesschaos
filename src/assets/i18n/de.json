@@ -23,6 +23,9 @@
   "TUTORIAL_SLIDE3_TITLE": "Los gehts",
   "TUTORIAL_SLIDE3_DESCRIPTION": "Du brauchst Hilfe? Sieh dir das README File an um mehr zu erfahren.",
 
+  "TUTORIAL_CHECKBOX_SHOW_ON_STARTUP": "Bei jedem Start anzeigen",
+  "SETTINGS_OPTION_SHOW_TUTORIAL_ON_STARTUP": "Tutorial am Start anzeigen",
+
   "TUTORIAL_CONTINUE_BUTTON": "Fortfahren",
 
   "WELCOME_INTRO": "Der Startpunkt für Deine nächste tolle Ionic App",

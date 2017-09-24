@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, MenuController, NavController, Platform} from 'ionic-angular';
 
-import { TranslateService } from '@ngx-translate/core';
+import {TranslateService} from '@ngx-translate/core';
+import {Settings} from "../../providers/settings/settings";
 
 export interface Slide {
   title: string;
@@ -18,8 +19,9 @@ export class TutorialPage {
   slides: Slide[];
   showSkip = true;
   dir: string = 'ltr';
+  show_tutorial_on_startup: boolean;
 
-  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform) {
+  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform, public settings: Settings) {
     this.dir = platform.dir();
     translate.get(["TUTORIAL_SLIDE1_TITLE",
       "TUTORIAL_SLIDE1_DESCRIPTION",
@@ -48,6 +50,12 @@ export class TutorialPage {
           }
         ];
       });
+
+    settings.getValue("show_tutorial_on_startup").then(val => {
+      this.show_tutorial_on_startup = val;
+      console.log(val);
+    });
+
   }
 
   startApp() {
@@ -55,6 +63,14 @@ export class TutorialPage {
       animate: true,
       direction: 'forward'
     });
+  }
+
+  updateStartupSkip() {
+    console.log(this.show_tutorial_on_startup);
+    this.settings.load().then(() => {
+      this.settings.setValue("show_tutorial_on_startup", this.show_tutorial_on_startup);
+    })
+
   }
 
   onSlideChangeStart(slider) {

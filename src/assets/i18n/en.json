@@ -28,6 +28,9 @@
 
   "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
 
+  "TUTORIAL_CHECKBOX_SHOW_ON_STARTUP": "Show this on every start up",
+  "SETTINGS_OPTION_SHOW_TUTORIAL_ON_STARTUP": "Show tutorial on app start",
+
   "WELCOME_INTRO": "The starting point for your next great Ionic app",
 
   "SETTINGS_TITLE": "Settings",
