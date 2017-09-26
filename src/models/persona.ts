@@ -1,4 +1,4 @@
-export class Person {
+export class Persona {
 
   constructor(fields: any) {
     // Quick and dirty extend/assign fields to this model
@@ -6,5 +6,4 @@ export class Person {
       this[f] = fields[f];
     }
   }
-
 }
