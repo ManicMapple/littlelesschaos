@@ -43,6 +43,21 @@ export class ListPersonasPage {
     addModal.present();
   }
 
+  editItem(item: Persona) {
+
+    let addModal = this.modalCtrl.create('PersonaFormPage', {'persona':item});
+    addModal.onDidDismiss(item => {
+      if (item) {
+        console.log(item);
+        this.personas.updateItem(item);
+        this.personas.save();
+      }
+    })
+    addModal.present();
+  }
+
+
+
   /**
    * Delete an item from the list of items.
    */

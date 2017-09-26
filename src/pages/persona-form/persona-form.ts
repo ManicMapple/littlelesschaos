@@ -1,8 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Camera } from '@ionic-native/camera';
-import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Camera} from '@ionic-native/camera';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {Persona} from "../../models/persona";
+import * as shortid from "shortid";
+//import {generateUID} from "../../utils";
 
 @IonicPage()
 @Component({
@@ -14,16 +16,32 @@ export class PersonaFormPage {
 
   isReadyToSave: boolean;
 
-  persona:Persona;
+  persona: Persona;
 
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+
+    let name = "";
+    let about = "";
+    let birthdate = "";
+    let profile_picture = "";
+
+    let p = this.navParams.get("persona");
+    if (p) {
+      this.persona = p;
+      name = p.name;
+      about = p.about;
+      birthdate = p.birthate;
+      profile_picture = p.profilePic;
+    }
+
+
     this.form = formBuilder.group({
-      profilePic: [''],
-      name: ['', Validators.required],
-      about: [''],
-      birthate:''
+      profilePic: [profile_picture],
+      name: [name, Validators.required],
+      about: [about],
+      birthate: birthdate
     });
 
     // Watch the form for changes, and
@@ -43,7 +61,7 @@ export class PersonaFormPage {
         targetWidth: 96,
         targetHeight: 96
       }).then((data) => {
-        this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
+        this.form.patchValue({'profilePic': 'data:image/jpg;base64,' + data});
       }, (err) => {
         alert('Unable to take photo');
       })
@@ -57,7 +75,7 @@ export class PersonaFormPage {
     reader.onload = (readerEvent) => {
 
       let imageData = (readerEvent.target as any).result;
-      this.form.patchValue({ 'profilePic': imageData });
+      this.form.patchValue({'profilePic': imageData});
     };
 
     reader.readAsDataURL(event.target.files[0]);
@@ -79,7 +97,19 @@ export class PersonaFormPage {
    * back to the presenter.
    */
   done() {
-    if (!this.form.valid) { return; }
-    this.viewCtrl.dismiss(this.form.value);
+    if (!this.form.valid) {
+      return;
+    }
+
+    let data:any = this.form.value;
+
+    if(this.persona == null) {
+     //this.persona.id = generateUID();
+     data.id = shortid.generate();
+    }else{
+      data.id = this.persona.id;
+    }
+
+    this.viewCtrl.dismiss(data);
   }
 }

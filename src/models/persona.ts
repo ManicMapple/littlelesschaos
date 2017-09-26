@@ -1,4 +1,5 @@
 export class Persona {
+  id: string;
 
   constructor(fields: any) {
     // Quick and dirty extend/assign fields to this model

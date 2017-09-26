@@ -16,7 +16,7 @@
 
   <ion-list>
     <ion-item-sliding *ngFor="let item of currentPersonas">
-      <button ion-item (click)="openItem(item)">
+      <button ion-item (click)="editItem(item)">
         <ion-avatar item-start>
           <img [src]="item.profilePic" />
         </ion-avatar>

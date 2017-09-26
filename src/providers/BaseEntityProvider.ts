@@ -2,6 +2,7 @@ import 'rxjs/add/operator/map';
 
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import * as _ from 'lodash';
 
 
 import { Storage } from '@ionic/storage';
@@ -25,6 +26,13 @@ export class BaseEntityProvider {
 
   add(item: any) {
     this.elements.push(item);
+  }
+
+  updateItem(item: any) {
+
+    let index = _.findIndex(this.elements,  {id:item.id});
+    this.elements.splice(index, 1, item);
+    console.log(this.elements);
   }
 
   delete(item: any) {

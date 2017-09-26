@@ -18,5 +18,4 @@ export class PersonaProvider extends BaseEntityProvider{
     console.log('Hello PersonaProvider Provider');
     this.STORAGE_KEY = "_personas";
   }
-
 }
