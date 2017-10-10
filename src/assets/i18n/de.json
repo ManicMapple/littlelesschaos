@@ -55,5 +55,12 @@
   "CARDS_TITLE": "Social",
 
   "SEARCH_TITLE": "Suche",
-  "SEARCH_PLACEHOLDER": "Suche in der Artikel-Liste, z.B. \"Donald Duck\""
+  "SEARCH_PLACEHOLDER": "Suche in der Artikel-Liste, z.B. \"Donald Duck\"",
+
+  "LIST_PERSONAS_TITLE": "Personas",
+  "PERSONA_CREATE_TITLE": "Persona erstellen",
+  "PERSONA_EDIT_TITLE": "Persona bearbeiten",
+  "PERSONA_NAME_PLACEHOLDER": "Name",
+  "PERSONA_DATE_LABEL": "Geboren",
+  "PERSONA_ABOUT_PLACEHOLDER": "Über mich"
 }

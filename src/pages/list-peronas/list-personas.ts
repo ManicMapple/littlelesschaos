@@ -52,7 +52,7 @@ export class ListPersonasPage {
         this.personas.updateItem(item);
         this.personas.save();
       }
-    })
+    });
     addModal.present();
   }
 
@@ -69,11 +69,9 @@ export class ListPersonasPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Persona) {
-    /*
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
+
+    this.navCtrl.push('PersonaDetailPage', {
+      persona: item
     });
-    */
-    alert("tbi");
-  }
+    }
 }

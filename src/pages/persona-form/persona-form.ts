@@ -19,6 +19,7 @@ export class PersonaFormPage {
   persona: Persona;
 
   form: FormGroup;
+  is_new: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
 
@@ -34,6 +35,9 @@ export class PersonaFormPage {
       about = p.about;
       birthdate = p.birthate;
       profile_picture = p.profilePic;
+      this.is_new = false;
+    }else{
+      this.is_new = true;
     }
 
 

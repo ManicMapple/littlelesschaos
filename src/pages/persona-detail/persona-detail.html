@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{ persona.name }}</ion-title>
+        <ion-buttons end>
+            <button ion-button  icon-only color="royal" (click)="editItem()">
+                <ion-icon  name="create"></ion-icon>
+            </button>
+            <button ion-button  icon-only color="royal" (click)="editItem()">
+                <ion-icon name="trash"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6 col-md>
+                <div class="tile  balanced-bg">{{persona.name}}</div>
+            </ion-col>
+            <ion-col col-6 col-md>
+                <div class="tile  balanced-bg">Lifelog</div>
+            </ion-col>
+            <ion-col col-6 col-md>
+                <div class="tile tile balanced-bg" [style.background-image]="'url(' + persona.profilePic + ')'">
+                    Loops
+                </div>
+            </ion-col>
+            <ion-col col-6 col-md>
+                <div class="tile tile balanced-bg" [style.background-image]="'url(' + persona.profilePic + ')'">
+                    Metions
+                </div>
+            </ion-col>
+            <ion-col col-6 col-md>
+                <div class="tile  balanced-bg">
+                    Medilog</div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

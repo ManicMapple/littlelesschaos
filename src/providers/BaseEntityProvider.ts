@@ -57,7 +57,7 @@ export class BaseEntityProvider {
   getStorageKey():string {
 
     if(this.STORAGE_KEY == null) {
-      throw new Error("tbi stoarge key");
+      throw new Error("tbi storage key");
     }
     return this.STORAGE_KEY;
   }
