@@ -15,6 +15,13 @@
 
     <ion-grid>
         <ion-row>
+            <ion-col col-12 col-md>
+                <div class="tile tile-double balanced-bg" [style.background-image]="'url(' + persona.profilePic + ')'">
+                    {{persona.name}}
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
             <ion-col col-6 col-md>
                 <div class="tile  balanced-bg">{{persona.name}}</div>
             </ion-col>
