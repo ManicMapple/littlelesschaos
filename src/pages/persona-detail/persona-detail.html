@@ -26,7 +26,7 @@
                 <div class="tile  balanced-bg">{{persona.name}}</div>
             </ion-col>
             <ion-col col-6 col-md>
-                <div class="tile  balanced-bg">Lifelog</div>
+                <div class="tile  balanced-bg" (click)="openLifeLog()">Lifelog</div>
             </ion-col>
             <ion-col col-6 col-md>
                 <div class="tile tile balanced-bg" [style.background-image]="'url(' + persona.profilePic + ')'">

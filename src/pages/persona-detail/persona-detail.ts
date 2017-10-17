@@ -29,4 +29,10 @@ export class PersonaDetailPage {
     addModal.present();
   }
 
+  openLifeLog() {
+    this.navCtrl.push('ListLifeLogPage', {
+      persona: this.persona
+    });
+  }
+
 }

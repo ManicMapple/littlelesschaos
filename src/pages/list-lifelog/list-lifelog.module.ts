@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
-import { MapPage } from './map';
+import { ListLifeLogPage } from './list-lifelog';
 
 @NgModule({
   declarations: [
-    MapPage,
+    ListLifeLogPage,
   ],
   imports: [
-    IonicPageModule.forChild(MapPage),
+    IonicPageModule.forChild(ListLifeLogPage),
     TranslateModule.forChild()
   ],
   exports: [
-    MapPage
+    ListLifeLogPage
   ]
 })
-export class MapPageModule { }
+export class ListPersonasPageModule { }

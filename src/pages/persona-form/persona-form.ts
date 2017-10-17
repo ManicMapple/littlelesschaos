@@ -79,6 +79,27 @@ export class PersonaFormPage {
     reader.onload = (readerEvent) => {
 
       let imageData = (readerEvent.target as any).result;
+/*
+     // let uri = "data:image/jpeg;base64," + imageData;
+      let options = {
+        uri: imageData,
+        folderName: 'cache',
+        quality: 90,
+        width: 800,
+        height: 800
+      } as ImageResizerOptions;
+
+      this.imageResizer
+        .resize(options)
+        .then((filePath: string) => {
+        console.log('FilePath', filePath);
+          this.form.patchValue({'profilePic': filePath});
+        })
+        .catch(e => {
+          console.log(e);
+        });
+      */
+
       this.form.patchValue({'profilePic': imageData});
     };
 
