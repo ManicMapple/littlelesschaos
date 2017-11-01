@@ -14,6 +14,7 @@ export class ListPersonasPage {
 
   constructor(public navCtrl: NavController, public personas: PersonaProvider, public modalCtrl: ModalController) {
 
+    this.currentPersonas = [];
     this.personas.query().then(
       personas => {
         this.currentPersonas = personas;
